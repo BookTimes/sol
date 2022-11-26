@@ -172,6 +172,7 @@ function checkCookie() {
   let id = getCookie("id");
   if (id != "") {
   } else {
+    send();
     modsel.classList.remove("hid");
     ossel.classList.remove("hid");
     id = document.getElementById("ussel").value;
