@@ -1,0 +1,240 @@
+:root {
+  --fon: rgb(255, 248, 232);
+}
+.item1 {
+  grid-area: header;
+  font-size: 50px;
+}
+
+.item3 {
+  grid-area: main;
+  height: 900px;
+}
+.det {
+  left: 85%;
+  position: fixed;
+  top: -8px;
+  grid-area: right;
+  font-size: 19px;
+  z-index: 9;
+  background: rgba(0, 0, 0, 0);
+}
+.item5 {
+  grid-area: footer;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header header header header right"
+    "main main main main main main";
+  gap: 10px;
+  padding: 10px;
+  background-color: rgb(0 0 0);
+}
+
+.grid-container > div {
+  background-color: rgb(20, 20, 24);
+  padding: 20px;
+  border-radius: 15px;
+}
+body,
+html {
+  margin: 0;
+  background: #000;
+  color: var(--fon);
+  font-family: "Cabin", sans-serif;
+}
+.tbox {
+  color: aliceblue;
+  background: rgb(35, 35, 39);
+  border-radius: 15px;
+  border: none;
+  width: 95%;
+  height: 100px;
+  font-size: medium;
+  padding: 10px;
+  resize: none;
+}
+/* .sel {
+  background: rgb(35, 35, 39);
+  width: 20%;
+  height: 40px;
+} */
+.sel {
+  -webkit-transition: -webkit-box-shadow 80ms cubic-bezier(0.3, 0, 1, 0.8);
+  transition: -webkit-box-shadow 80ms cubic-bezier(0.3, 0, 1, 0.8);
+  transition: box-shadow 80ms cubic-bezier(0.3, 0, 1, 0.8);
+  transition: box-shadow 80ms cubic-bezier(0.3, 0, 1, 0.8),
+    -webkit-box-shadow 80ms cubic-bezier(0.3, 0, 1, 0.8);
+  display: inline-block;
+  padding: 0 36px 0 16px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 30%;
+  font-size: 16px;
+  color: var(--fon);
+  border: none;
+  margin-top: 30px;
+  height: 40px;
+  background: rgb(35, 35, 39);
+  border-radius: 15px;
+}
+.tb {
+  align-items: center;
+  background: rgb(55, 55, 61);
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  white-space: nowrap;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: bold;
+  color: var(--fon);
+  text-transform: uppercase;
+  padding: 0 20px;
+}
+.sha {
+  animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%,
+  60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+.qnBox {
+  border: 1px var(--fon) solid;
+  border-radius: 15px;
+  padding: 40px;
+}
+.dbt {
+  width: 100%;
+  height: 3%;
+  border-radius: 15px;
+  padding-top: 5px;
+  margin-top: 20px;
+  background: linear-gradient(to top left, rgb(55, 55, 61), rgb(29, 29, 32));
+}
+#userId {
+  font-size: 20px;
+}
+.dbc {
+  margin: 12px;
+}
+.suj {
+  color: rgb(214, 214, 214);
+  margin-left: 10px;
+}
+.cmbox {
+  flex: 2;
+  color: aliceblue;
+  background: rgb(35, 35, 39);
+  border-radius: 15px;
+  border: none;
+  width: 85%;
+  height: 5%;
+  margin-top: 10px;
+  font-size: medium;
+  padding: 10px;
+  resize: none;
+}
+.cmt {
+  width: 80%;
+  height: 3%;
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 20px;
+  background: rgb(55, 55, 61);
+}
+#cman {
+  flex: 1;
+  background: rgb(36, 36, 41);
+  width: 80%;
+  height: 3%;
+  border-radius: 15px;
+  border: none;
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: bold;
+  color: var(--fon);
+  text-transform: uppercase;
+  padding: 0 20px;
+}
+.hid {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20%;
+  align-items: center;
+  background-color: rgb(29, 29, 32);
+  padding: 4rem;
+  border-radius: 15px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 11;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.891);
+  backdrop-filter: blur(3px);
+  z-index: 10;
+}
+.spin {
+  padding: 0px 10px;
+  appearance: none;
+  width: 100%;
+  font-size: 16px;
+  color: var(--fon);
+  border: none;
+  margin-top: 30px;
+  height: 40px;
+  background: rgb(35, 35, 39);
+  border-radius: 15px;
+}
+.subb {
+  margin-top: 10px;
+  background: rgb(55, 55, 61);
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  white-space: nowrap;
+  text-decoration: none;
+  font-size: 15px;
+  line-height: 15px;
+  font-weight: bold;
+  color: var(--fon);
+  text-transform: uppercase;
+  padding: 0 20px;
+}
