@@ -184,7 +184,6 @@ function checkCookie() {
       setCookie("suj", suj, 365);
       setCookie("gr", gr, 365);
 
-      alert(id);
     }
   }
 }
