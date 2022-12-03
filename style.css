@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 :root {
   --fon: rgb(255, 248, 232);
 }
@@ -136,7 +137,6 @@ html {
   border-radius: 15px;
   padding-top: 5px;
   margin-top: 20px;
-  background: linear-gradient(to top left, rgb(55, 55, 61), rgb(29, 29, 32));
 }
 #userId {
   font-size: 20px;
@@ -238,3 +238,69 @@ html {
   text-transform: uppercase;
   padding: 0 20px;
 }
+.Biology {
+  background-color: linear-gradient(
+    to top left,
+    rgb(7, 39, 24),
+    rgb(0, 73, 61)
+  );
+}
+.Chemistry {
+  background: linear-gradient(to top left, rgb(37, 7, 39), rgb(50, 0, 73));
+}
+.Social {
+  background: linear-gradient(
+    to top left,
+    rgb(62, 21, 1),
+    rgba(226, 166, 0, 0.539)
+  );
+}
+.Hindi {
+  background: linear-gradient(to top left, rgb(161, 80, 0), rgb(73, 0, 0));
+}
+.French {
+  background-color: linear-gradient(
+    to bottom right,
+    rgb(0, 70, 182),
+    rgb(255, 255, 255) 50%,
+    rgba(255, 0, 0, 0.581)
+  );
+}
+.Malayalam {
+  background: linear-gradient(to top left, rgb(1, 202, 145), rgb(0, 73, 36));
+}
+.Physics {
+  background: linear-gradient(to top left, rgb(23, 68, 192), rgb(3, 141, 136));
+}
+.English {
+  background-image: url("https://gstatic.com/classroom/themes/img_bookclub.jpg");
+  background-position: right;
+  background-size: cover;
+  background-attachment: scroll;
+  background-color: rgb(51 171 113);
+}
+.Maths {
+  background-image: url("https://gstatic.com/classroom/themes/Math.jpg");
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.French {
+  background-image: url("https://www.gstatic.com/classroom/themes/USHistory.jpg");
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+.Biology {
+  background-image: url("https://gstatic.com/classroom/themes/Biology.jpg");
+  background-position: right;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+.Computer {
+  font-family: monospace;
+  background: linear-gradient(to top left, rgb(0, 0, 0), rgb(3, 21, 182));
+}
+
