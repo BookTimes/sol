@@ -6,7 +6,6 @@ var ol = [];
 fetch("https://jsonblob.com/api/1043609418884988928")
   .then((response) => response.json())
   .then((json) => (ol = json));
-
 const user = {
   id: getCookie("id"),
   gr: getCookie("gr"),
@@ -21,6 +20,7 @@ if (user.role == "tr") {
 } else {
   document.getElementById("userGr").innerHTML = "Grade: " + user.gr;
 }
+
 function submit() {
   if (qn.value.replace(" ", "") != "") {
     if (sub.value != "nono") {
@@ -75,6 +75,7 @@ var setn = 0;
 setTimeout(function () {
   ol.forEach(function (i) {
     var reco = "";
+    var thme = "";
     if (user.role == "sd") {
       if (user.gr != i.gr) {
         reco = "hid";
@@ -90,7 +91,7 @@ setTimeout(function () {
     document.getElementById("dbts").insertAdjacentHTML(
       "afterbegin",
       `
-      <div class="dbt ${reco}">
+      <div class="dbt ${reco} ${i.suj}">
       <div class="dbc">
         <span id="userId">${i.us}</span> <span class="suj">${i.suj}</span><br><br>
                   <span id="qn">${i.qun}</span>
@@ -184,19 +185,18 @@ function checkCookie() {
       setCookie("role", role, 365);
       setCookie("suj", suj, 365);
       setCookie("gr", gr, 365);
-
     }
   }
 }
 function delc() {
   var cookies = document.cookie.split(";");
-
   for (var i = 0; i < cookies.length; i++) {
     var cookie = cookies[i];
     var eqPos = cookie.indexOf("=");
     var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
     document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
   }
-    setCookie("id", "", 365);
+  setCookie("id", "", 365);
+
   location.reload();
 }
