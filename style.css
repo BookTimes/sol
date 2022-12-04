@@ -5,6 +5,7 @@
 .item1 {
   grid-area: header;
   font-size: 50px;
+  height: 130px;
 }
 
 .item3 {
@@ -273,17 +274,11 @@ html {
   background: linear-gradient(to top left, rgb(23, 68, 192), rgb(3, 141, 136));
 }
 .English {
-  background-image: url("https://gstatic.com/classroom/themes/img_bookclub.jpg");
-  background-position: right;
-  background-size: cover;
-  background-attachment: scroll;
-  background-color: rgb(51 171 113);
+  background: linear-gradient(to top left, rgb(144, 192, 23), rgb(204, 173, 0));
 }
 .Maths {
-  background-image: url("https://gstatic.com/classroom/themes/Math.jpg");
-  background-position: right;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: linear-gradient(to top left, rgb(192, 23, 116), rgb(141, 3, 83));
+
 }
 .French {
   background-image: url("https://www.gstatic.com/classroom/themes/USHistory.jpg");
@@ -303,4 +298,61 @@ html {
   font-family: monospace;
   background: linear-gradient(to top left, rgb(0, 0, 0), rgb(3, 21, 182));
 }
+.xHPsid {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  white-space: nowrap;
+}
+.wZTANe {
+  flex-shrink: 0;
+  height:100%;
+  
+}
 
+.hN1OOc {
+  align-items: center;
+  display: flex;
+  border-bottom: solid 0.125rem transparent;
+  box-sizing: border-box;
+  padding: 5px;
+  position: relative;
+  margin-right:10px ;
+  top: -20px;
+  border-radius: 10px;
+  color: rgb(209, 192, 157);
+  text-decoration: none;
+}
+.EZrbnd {
+  letter-spacing: .01785714em;
+  font-family: "Google Sans",Roboto,Arial,sans-serif;
+  font-size:15px;
+  font-weight: 500;
+  line-height: 2.5rem;
+  color: var(--fon);
+  text-transform: none;
+}
+.hN1OOc::after {
+  border-top-width: 0.25rem;
+  border-top-style: solid;
+  border-radius: 0.25rem 0.25rem 0 0;
+  bottom: -0.125rem;
+  content: "";
+  height: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+a:hover {
+  color: rgb(209, 192, 157);
+}
+.active{
+ background-color: rgb(173, 156, 123);
+}
+a:any-link {
+  text-decoration:none;
+  cursor: auto;
+}
+.General{
+  background: linear-gradient(to top left, rgb(68, 46, 46),rgb(114, 114, 114));
+}
