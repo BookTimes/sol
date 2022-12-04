@@ -2,7 +2,8 @@ const qn = document.getElementById("tbox");
 const sub = document.getElementById("sel");
 const sbtn = document.getElementById("tb");
 var ol = [];
-
+let params = new URLSearchParams(window.location.search);
+document.all.tbox.textContent = params.has("question") ? params.get("question") : "";
 fetch("https://jsonblob.com/api/1043609418884988928")
   .then((response) => response.json())
   .then((json) => (ol = json));
@@ -200,3 +201,4 @@ function delc() {
 
   location.reload();
 }
+
