@@ -70,8 +70,11 @@ function send(linda = true, qn = "") {
   // qns = JSON.stringify(ol).push(JSON.stringify(qn));
   // var data = JSON.stringify(qns);
   console.log(qn);
-  var data = JSON.stringify(ol);
+  
+    var data = JSON.stringify(ol);
   xhr.send(data);
+  
+  
 }
 var setn = 0;
 setTimeout(function () {
@@ -182,7 +185,8 @@ function checkCookie() {
     const gr = document.getElementById("grsel").value;
     const suj = document.getElementById("sujsel").value;
     const role = rosel.value;
-    if (id != "" && role != "nono") {
+    const masel = document.getElementById('masel').value
+            if (id != "" && role != "nono" && chlize(id.toLocaleLowerCase())== chlize(masel)) {
       setCookie("id", id, 365);
       setCookie("role", role, 365);
       setCookie("suj", suj, 365);
@@ -202,5 +206,20 @@ function delc() {
 
   location.reload();
 }
+function chlize(huli){
+  huli = huli.split('')
+  huli.reverse()
+  huli = huli.slice(-4)
+  huli.reverse()
+  huli = huli.join("")
+  return huli
+}
+document.addEventListener('keydown', function(e){
+if(e.key =='/'){
+  send()
+  location.reload()
+  
+}
+})
 
 
