@@ -6,7 +6,54 @@ let params = new URLSearchParams(window.location.search);
 document.all.tbox.textContent = params.has("question") ? params.get("question") : "";
 fetch("https://jsonblob.com/api/1043609418884988928")
   .then((response) => response.json())
-  .then((json) => (ol = json));
+  .then((json) => (ol = json))
+  .then(() => {
+   var setn = 0;
+   setTimeout(function () {
+       ol.forEach(function (i) {
+       var reco = "";
+       var thme = "";
+       if (user.role == "sd") {
+           if (user.gr != i.gr) {
+           reco = "hid";
+           }
+       }
+       if (user.role == "tr") {
+           if (user.suj != i.suj) {
+           reco = "hid";
+           }
+       }
+   
+       const alcm = i.cm.join("<br><hr>");
+       document.getElementById("dbts").insertAdjacentHTML(
+           "afterbegin",
+           `
+           <div class="dbt ${reco} ${i.suj}">
+           <div class="dbc">
+           <span id="userId">${i.us}</span> <span class="suj">${i.suj}</span><br><br>
+                       <span id="qn">${i.qun}</span>
+               <hr>
+               <h2>Answers</h2>
+           <div class="cms">
+           <div class="cm">
+               <div class="cmt">
+               <span id='qn'>
+               ${alcm}
+                   </span>
+               </div>
+               <div style="display: flex;"><textarea onclick='ent(this)' name='${setn}'  placeholder="Do you know the answer" class="cmbox sel" id="cmbox ${setn}"></textarea><button onclick='ansub(this)' id ='${setn}' button class="tb" style="  background: rgb(36, 36, 41);
+               ">Answer</button></div>
+               
+               
+           </div>
+           </div>
+       </div>
+       </div>
+       `
+       );
+       setn += 1;
+       });
+   }, 1000);});
 const user = {
   id: getCookie("id"),
   gr: getCookie("gr"),
@@ -28,7 +75,7 @@ function submit() {
       subm(qn.value, sub.value, user.id, user.gr);
       send(false, list[list.length - 1]);
       setTimeout(function () {
-        window.open("https://booktimes.github.io/sol/",'_self');
+        // window.open("https://booktimes.github.io/sol/",'_self');
       }, 1000);
     } else {
       alert('Choose a subject')
@@ -64,7 +111,7 @@ function send(linda = true, qn = "") {
     if (xhr.readyState === 4) {
     }
   };
-  if (linda == false) {
+  if (!linda) {
     ol.push(JSON.parse(JSON.stringify(qn)));
   }
   // qns = JSON.stringify(ol).push(JSON.stringify(qn));
@@ -74,60 +121,14 @@ function send(linda = true, qn = "") {
     var data = JSON.stringify(ol);
   xhr.send(data);
   
-  
 }
-var setn = 0;
-setTimeout(function () {
-  ol.forEach(function (i) {
-    var reco = "";
-    var thme = "";
-    if (user.role == "sd") {
-      if (user.gr != i.gr) {
-        reco = "hid";
-      }
-    }
-    if (user.role == "tr") {
-      if (user.suj != i.suj) {
-        reco = "hid";
-      }
-    }
 
-    const alcm = i.cm.join("<br><hr>");
-    document.getElementById("dbts").insertAdjacentHTML(
-      "afterbegin",
-      `
-      <div class="dbt ${reco} ${i.suj}">
-      <div class="dbc">
-        <span id="userId">${i.us}</span> <span class="suj">${i.suj}</span><br><br>
-                  <span id="qn">${i.qun}</span>
-          <hr>
-          <h2>Answers</h2>
-      <div class="cms">
-        <div class="cm">
-          <div class="cmt">
-          <span id='qn'>
-           ${alcm}
-              </span>
-          </div>
-          <div style="display: flex;"><textarea onclick='ent(this)' name='${setn}'  placeholder="Do you know the answer" class="cmbox sel" id="cmbox ${setn}"></textarea><button onclick='ansub(this)' id ='${setn}' button class="tb" style="  background: rgb(36, 36, 41);
-            ">Answer</button></div>
-          
-          
-        </div>
-      </div>
-    </div>
-  </div>
-    `
-    );
-    setn += 1;
-  });
-}, 1000);
 
 function ansub(el) {
   const txb = document.getElementById(`cmbox ${el.id}`);
   ol[el.id].cm.push(user.id + ": " + txb.value);
-  send(null, true);
-  location.reload();
+  el.insertAdjacentHTML('beforebegin', '<img style="height:30px ; width:30px ;margin-top:15px" src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif">')
+  send();
 }
 
 function ent(w) {
@@ -221,5 +222,25 @@ if(e.key =='/'){
   
 }
 })
+var olo = ol
+const j = setInterval(function(){
+  fetch("https://jsonblob.com/api/1043609418884988928")
+  .then((response) => response.json())
+  .then((json) => (olo = json)).then(()=>{
+    if(JSON.stringify(ol) != JSON.stringify(olo)){
+      console.log(ol[ol.length - 1].cm)
+
+  const rant = (navigator.vendor == 'Apple Computer, Inc.')? 100 : 2000
+
+       setTimeout(function(){location.reload()},rant)
+    }
+  });
+},100)
+
+function clr(){
+  ol = []
+  olo =[]
+  send()
+}
 
 
